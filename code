@@ -1,0 +1,26 @@
+#define FLAME_SENSOR_ANALOG A0
+#define FLAME_SENSOR_DIGITAL D1
+int const ledPin = 4;
+void setup() {
+  Serial.begin(115200); 
+  pinMode(FLAME_SENSOR_DIGITAL, INPUT); 
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  int analogValue = analogRead(FLAME_SENSOR_ANALOG); 
+  int digitalValue = digitalRead(FLAME_SENSOR_DIGITAL);
+  
+  Serial.print("Analog Value: ");
+  Serial.println(analogValue);
+  
+  if (digitalValue == HIGH) {
+    Serial.println("Flame detected!");
+    digitalWrite(ledPin, HIGH);
+  } else {
+    Serial.println("No flame detected.");
+    digitalWrite(ledPin, LOW);
+  }
+  
+  delay(500); // Wait for half a second before reading again
+}
