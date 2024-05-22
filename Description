@@ -1,0 +1,6 @@
+connect the wire properly
+A0 of mcu to A0 of sensor
+G to G
++ to 3v of mcu
+D to D1 of mcu
+upload the code in ide 
